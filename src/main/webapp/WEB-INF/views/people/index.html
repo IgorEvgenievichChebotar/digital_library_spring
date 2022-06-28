@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <title>Люди, взявшие книги из библиотеки</title>
+</head>
+<body>
+
+<a href="http://localhost:8080">Домашняя страница</a>
+
+<hr/>
+
+<div
+        th:each="person : ${people}">
+    <a th:href="@{people/{id}(id=${person.getId()})}"
+       th:text="${person.getName()} + ', ' + ${person.getBirthdate()}">person</a>
+
+</div>
+
+
+<hr>
+
+<a href="/people/new">Добавить человека</a>
+
+</body>
+</html>
