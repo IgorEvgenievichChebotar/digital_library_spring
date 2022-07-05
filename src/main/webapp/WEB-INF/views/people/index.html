@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="rus">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Люди, взявшие книги из библиотеки</title>
@@ -10,13 +10,10 @@
 
 <hr/>
 
-<div
-        th:each="person : ${people}">
-    <a th:href="@{people/{id}(id=${person.getId()})}"
-       th:text="${person.getName()} + ', ' + ${person.getBirthdate()}">person</a>
-
+<div th:each="person : ${people}">
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName() + ', ' + person.getBirthdate()}">user</a>
 </div>
-
 
 <hr>
 

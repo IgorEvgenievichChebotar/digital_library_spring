@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="rus" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Редактирование</title>
@@ -15,7 +15,7 @@
     <input type="text" th:field="*{name}" id="name"/>
     <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br/>
-    <label for="name">Введите год рождения: </label>
+    <label for="birthdate">Введите год рождения: </label>
     <input type="text" th:field="*{birthdate}" id="birthdate"/>
     <div style="color: red" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">birthdate error</div>
     <br/>
