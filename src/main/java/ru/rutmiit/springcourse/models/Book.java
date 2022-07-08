@@ -1,10 +1,11 @@
-package ru.rutmiit.model;
+package ru.rutmiit.springcourse.models;
 
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "Book")
@@ -12,26 +13,28 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private int id;
 
-    @Column
     @NotEmpty
     @Size(min = 1, max=100, message = "Некорректное название")
     private String name;
 
-    @Column
     @NotEmpty
     @Size(min = 2, max=100, message = "Некорректный автор")
     private String author;
 
-    @Column
     @Range(min=1000, max=2022, message = "Неправильный формат даты. Пример: 1985")
     private int year;
 
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person owner;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date when_taken;
+
+    @Transient
+    private boolean expired;
 
     public Book() {
     }
@@ -40,6 +43,22 @@ public class Book {
         this.name = name;
         this.author = author;
         this.year = year;
+    }
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
+    }
+
+    public Date getWhen_taken() {
+        return when_taken;
+    }
+
+    public void setWhen_taken(Date whenTaken) {
+        this.when_taken = whenTaken;
     }
 
     public int getId() {
@@ -80,5 +99,10 @@ public class Book {
 
     public void setOwner(Person owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s (%d) - %s", name, year, author);
     }
 }

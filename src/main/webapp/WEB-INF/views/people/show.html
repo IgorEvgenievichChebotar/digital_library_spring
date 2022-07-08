@@ -20,8 +20,16 @@
     <hr/>
     <b>Книги:</b>
     <br/>
-    <table th:each="book : ${books}">
-        <tr th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">book</tr>
+    <table th:each="book : ${books}" >
+        <tr>
+            <td>
+                <span th:style="${book.isExpired()} ? 'color:red' : 'color:black'"
+                      th:text="'(' + ${book.getWhen_taken()} + ') '">
+                </span>
+
+                <span th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">book</span>
+            </td>
+        </tr>
     </table>
 </div>
 

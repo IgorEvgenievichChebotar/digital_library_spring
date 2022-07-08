@@ -1,4 +1,4 @@
-package ru.rutmiit.config;
+package ru.rutmiit.springcourse.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -27,7 +27,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("ru.rutmiit")
 @EnableWebMvc
-@EnableJpaRepositories("ru.rutmiit.repositories")
+@EnableJpaRepositories("ru.rutmiit.springcourse.repositories")
 @EnableTransactionManagement
 @PropertySource("classpath:hibernate.properties")
 public class SpringConfig implements WebMvcConfigurer {
@@ -92,7 +92,7 @@ public class SpringConfig implements WebMvcConfigurer {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("ru.rutmiit.model");
+        em.setPackagesToScan("ru.rutmiit.springcourse.models");
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

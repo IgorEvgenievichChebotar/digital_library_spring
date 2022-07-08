@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Читатели и их книги</title>
+</head>
+<body>
+
+<a href="http://localhost:8080">Домашняя страница</a>
+
+<hr/>
+
+<div th:each="person : ${people}" >
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName()} + ', ' + ${person.getBirthdate()}">reader
+    </a>
+
+    <a> [</a>
+
+    <span th:each="book : ${person.getBooks()}">
+        <a th:href="@{/books/{id}(id=${book.getId()})}"
+        th:text="${book.getName()}"
+           th:style="${book.isExpired()?'color:red':'color:black'}">
+        </a>
+        <a>, </a>
+    </span>
+
+    <a>] </a>
+
+</div>
+
+<hr/>
+<a href="/general">Вернуться</a>
+
+</body>
+</html>

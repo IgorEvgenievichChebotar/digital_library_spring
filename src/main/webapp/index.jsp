@@ -11,8 +11,10 @@
 <body>
 <h2>Цифровой учёт библиотеки</h2>
 <hr/>
-<a href="/people">Список людей</a>
+<a href="${pageContext.request.contextPath}/people">Список людей</a>
 <br/>
-<a href="/books">Список книг</a>
+<a href="${pageContext.request.contextPath}/books">Список книг</a>
+<hr/>
+<a href="${pageContext.request.contextPath}/general">Общий список</a>
 </body>
 </html>

@@ -16,6 +16,10 @@
 
 <div th:if="${owner}">
     <span>Книга сейчас у: </span> <span th:text="${owner.getName()}">person name</span>
+
+    <a th:text="'(' + ${book.getWhen_taken()} + ')'"
+       th:style="${book.isExpired() ? 'color: red' : 'color: black'}">time</a>
+
     <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
         <input type="submit" value="Освободить книгу">
     </form>

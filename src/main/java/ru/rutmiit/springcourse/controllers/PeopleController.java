@@ -1,13 +1,13 @@
-package ru.rutmiit.controller;
+package ru.rutmiit.springcourse.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.rutmiit.model.Person;
-import ru.rutmiit.services.BookService;
-import ru.rutmiit.services.PersonService;
+import ru.rutmiit.springcourse.models.Person;
+import ru.rutmiit.springcourse.services.BookService;
+import ru.rutmiit.springcourse.services.PersonService;
 
 import javax.validation.Valid;
 
@@ -25,20 +25,20 @@ public class PeopleController {
     }
 
     @GetMapping
-    public String indexPeople(Model model){
+    public String index(Model model){
         model.addAttribute("people", personService.index());
         return "people/index";
     }
 
     @GetMapping("/{id}")
-    public String showPerson(@PathVariable("id") int id, Model model) {
+    public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("person", personService.show(id));
-        model.addAttribute("books", bookService.getBooksByPersonId(id));
+        model.addAttribute("books", personService.getBooksByPersonId(id));
         return "people/show";
     }
 
     @GetMapping("/{id}/edit")
-    public String editPerson(@PathVariable("id") int id, Model model){
+    public String update(@PathVariable("id") int id, Model model){
         model.addAttribute("person", personService.show(id));
         return "people/edit";
     }
@@ -49,8 +49,8 @@ public class PeopleController {
     }
 
     @PostMapping
-    public String createPerson(@ModelAttribute("person") @Valid Person person,
-                               BindingResult bindingResult){
+    public String create(@ModelAttribute("person") @Valid Person person,
+                         BindingResult bindingResult){
 
         if (!bindingResult.hasErrors()) {
             personService.save(person);
@@ -62,9 +62,9 @@ public class PeopleController {
     }
 
     @PatchMapping("/{id}")
-    public String updatePerson(@PathVariable("id") int id,
-                               @ModelAttribute("person") @Valid Person person,
-                               BindingResult bindingResult){
+    public String update(@PathVariable("id") int id,
+                         @ModelAttribute("person") @Valid Person person,
+                         BindingResult bindingResult){
         if (!bindingResult.hasErrors()) {
             personService.update(id, person);
             return "redirect:/people";
@@ -74,7 +74,7 @@ public class PeopleController {
     }
 
     @DeleteMapping("/{id}")
-    public String deletePerson(@PathVariable("id") int id){
+    public String delete(@PathVariable("id") int id){
         personService.delete(id);
         return "redirect:/people";
     }
