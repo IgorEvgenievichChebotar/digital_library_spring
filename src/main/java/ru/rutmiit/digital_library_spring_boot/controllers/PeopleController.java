@@ -1,13 +1,13 @@
-package ru.rutmiit.springcourse.controllers;
+package ru.rutmiit.digital_library_spring_boot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.rutmiit.springcourse.models.Person;
-import ru.rutmiit.springcourse.services.BookService;
-import ru.rutmiit.springcourse.services.PersonService;
+import ru.rutmiit.digital_library_spring_boot.models.Person;
+import ru.rutmiit.digital_library_spring_boot.services.BookService;
+import ru.rutmiit.digital_library_spring_boot.services.PersonService;
 
 import javax.validation.Valid;
 

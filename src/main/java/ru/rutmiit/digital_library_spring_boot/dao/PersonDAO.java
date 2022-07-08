@@ -1,10 +1,10 @@
-package ru.rutmiit.springcourse.dao;
+package ru.rutmiit.digital_library_spring_boot.dao;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.rutmiit.springcourse.models.Book;
-import ru.rutmiit.springcourse.models.Person;
+import ru.rutmiit.digital_library_spring_boot.models.Book;
+import ru.rutmiit.digital_library_spring_boot.models.Person;
 
 import javax.persistence.EntityManager;
 import java.util.Date;

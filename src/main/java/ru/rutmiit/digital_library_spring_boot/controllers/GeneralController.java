@@ -1,10 +1,10 @@
-package ru.rutmiit.springcourse.controllers;
+package ru.rutmiit.digital_library_spring_boot.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.rutmiit.springcourse.dao.PersonDAO;
+import ru.rutmiit.digital_library_spring_boot.dao.PersonDAO;
 
 @Controller
 @RequestMapping("/general")

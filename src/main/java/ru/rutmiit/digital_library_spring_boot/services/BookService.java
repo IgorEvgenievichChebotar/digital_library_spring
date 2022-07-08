@@ -1,13 +1,13 @@
-package ru.rutmiit.springcourse.services;
+package ru.rutmiit.digital_library_spring_boot.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.rutmiit.springcourse.models.Book;
-import ru.rutmiit.springcourse.models.Person;
-import ru.rutmiit.springcourse.repositories.BookRepository;
+import ru.rutmiit.digital_library_spring_boot.models.Book;
+import ru.rutmiit.digital_library_spring_boot.models.Person;
+import ru.rutmiit.digital_library_spring_boot.repositories.BookRepository;
 
 import java.util.Date;
 import java.util.List;

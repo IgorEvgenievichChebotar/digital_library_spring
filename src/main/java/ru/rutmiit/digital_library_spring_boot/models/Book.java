@@ -1,4 +1,4 @@
-package ru.rutmiit.springcourse.models;
+package ru.rutmiit.digital_library_spring_boot.models;
 
 import org.hibernate.validator.constraints.Range;
 
