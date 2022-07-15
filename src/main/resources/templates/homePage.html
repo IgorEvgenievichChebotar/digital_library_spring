@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html lang="rus">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Цифровой учёт библиотеки</title>
 </head>
 
 <body>
-<h2>Цифровой учёт библиотеки</h2>
+<h1>Цифровой учёт библиотеки</h1>
 <hr/>
 <a href="/people">Список людей</a>
 <br/>
 <a href="/books">Список книг</a>
-<hr/>
+<br/>
 <a href="/general">Общий список</a>
+
+<hr/>
+
+<a th:href="@{/adminPage}"
+   style="position: absolute; right: 20px; top: 10px">
+  Перейти на страницу админа
+</a>
+
+<a href="/showUserInfo"
+   th:text="${client.username}"
+   style="position: absolute; right: 20px; top: 30px">client</a>
+
+<form th:method="post"
+      th:action="@{/logout}"
+      style="color: red; position: absolute; right: 20px; top: 50px">
+
+  <input type="submit" value="Выйти из аккаунта">
+</form>
+
 </body>
 </html>

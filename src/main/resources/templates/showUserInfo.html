@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body>
+
+<a href="/">
+    Домашняя страница
+</a>
+
+<hr/>
+
+<a th:text="${client.username} + ' авторизован как ' + ${client.role}">
+    client
+</a>
+
+<hr/>
+
+<a href="/">
+    Вернуться
+</a>
+
+</body>
+</html>
